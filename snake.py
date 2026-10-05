@@ -57,6 +57,13 @@ class Snake:
         elif direction == "right" and self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
+    def reset(self):
+        for segment in self.all_snakes:
+            segment.goto(1000, 1000)  # Move the segment off-screen
+        self.all_snakes.clear()
+        self.create_snake()
+        self.head = self.all_snakes[0]
+
 
 
 
